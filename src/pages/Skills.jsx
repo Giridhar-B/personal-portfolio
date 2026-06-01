@@ -25,100 +25,124 @@ const Skills = () => {
     <PageWrapper>
       <div
         style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          marginTop: "0px",
-          transform: "translateX(-18.5px)"
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
         }}
       >
-
-        {/* Heading (NOW MATCHES RESUME STYLE) */}
-        <h2
-          style={{
-              fontSize: "22px",
-              fontWeight: "400",
-              color: "#1a0dab",
-              marginBottom: "18px",
-              marginTop: 0,
-              cursor: "pointer",
-          }}
-          onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-          onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-        >
-          Skills
-        </h2>
-
-        <p
-          style={{
-            fontSize: "14px",
-            color: "#5f6368",
-            marginBottom: "22px",
-          }}
-        >
-          Technologies, frameworks and tools I work with
-        </p>
-
-        {/* Skills Container */}
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "20px",
-            perspective: "1000px",
+            gap: "60px",
+            alignItems: "flex-start",
+            width: "100%",
+            maxWidth: "1100px",
           }}
         >
-          {allSkills.map((skill, idx) => (
-            <div
-              key={idx}
+          {/* LEFT COLUMN (same alignment as All.jsx) */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: 0,
+            }}
+          >
+            {/* PAGE TITLE */}
+            <h2
               style={{
-                padding: "16px 26px",
-                borderRadius: "20px",
-
-                background: `${skill.color}15`,
-                color: skill.color,
-
-                fontSize: "15px",
-                fontWeight: "500",
-                letterSpacing: "0.2px",
-
-                border: `1px solid ${skill.color}22`,
-
-                boxShadow:
-                  "0 2px 5px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)",
-
-                cursor: "default",
-
-                transition:
-                  "transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease",
-
-                userSelect: "none",
-                whiteSpace: "nowrap",
+                fontSize: "22px",
+                fontWeight: "400",
+                color: "#1a0dab",
+                marginBottom: "18px",
+                marginTop: 0,
+                cursor: "pointer",
+                fontFamily: "Arial, sans-serif",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(-8px) scale(1.04)";
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.textDecoration = "underline")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.textDecoration = "none")
+              }
+            >
+              Skills
+            </h2>
 
-                e.currentTarget.style.background = skill.color;
-                e.currentTarget.style.color = "#ffffff";
-
-                e.currentTarget.style.boxShadow =
-                  "0 18px 35px rgba(0,0,0,0.18)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(0) scale(1)";
-
-                e.currentTarget.style.background = `${skill.color}15`;
-                e.currentTarget.style.color = skill.color;
-
-                e.currentTarget.style.boxShadow =
-                  "0 2px 5px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)";
+            {/* SUBTITLE */}
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#5f6368",
+                marginBottom: "22px",
+                fontFamily: "Arial, sans-serif",
               }}
             >
-              {skill.name}
+              Technologies, frameworks and tools I work with
+            </p>
+
+            {/* SKILLS CONTAINER */}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+                perspective: "1000px",
+              }}
+            >
+              {allSkills.map((skill, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    padding: "16px 26px",
+                    borderRadius: "20px",
+
+                    background: `${skill.color}15`,
+                    color: skill.color,
+
+                    fontSize: "15px",
+                    fontWeight: "500",
+                    letterSpacing: "0.2px",
+                    fontFamily: "Arial, sans-serif",
+
+                    border: `1px solid ${skill.color}22`,
+
+                    boxShadow:
+                      "0 2px 5px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)",
+
+                    cursor: "default",
+
+                    transition:
+                      "transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease",
+
+                    userSelect: "none",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(-8px) scale(1.04)";
+
+                    e.currentTarget.style.background = skill.color;
+                    e.currentTarget.style.color = "#ffffff";
+
+                    e.currentTarget.style.boxShadow =
+                      "0 18px 35px rgba(0,0,0,0.18)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(0) scale(1)";
+
+                    e.currentTarget.style.background = `${skill.color}15`;
+                    e.currentTarget.style.color = skill.color;
+
+                    e.currentTarget.style.boxShadow =
+                      "0 2px 5px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.04)";
+                  }}
+                >
+                  {skill.name}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </PageWrapper>

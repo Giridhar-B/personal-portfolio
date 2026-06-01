@@ -1,64 +1,146 @@
-import { useState } from "react";
 import SearchBar from "./components/layout/SearchBar";
 import TabNav from "./components/layout/TabNav";
+import Footer from "./components/common/Footer";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Routes, Route, useLocation } from "react-router-dom";
+
+// Pages
 import All from "./pages/All";
-import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import AboutMe from "./pages/AboutMe";
 import Images from "./pages/Images";
-import Skills from "./pages/Skills"; 
+import Skills from "./pages/Skills";
+import AIMode from "./pages/AIModePage";
 
-import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  const [tab, setTab] = useState("All");
+  const location = useLocation();
 
-  const renderTab = () => {
-    switch (tab) {
-      case "Experience":
-        return <Experience />;
-
-      case "Projects":
-        return <Projects />;
-
-      case "Resume":
-        return <Resume />;
-
-      case "Contact":
-        return <Contact />;
-
-      case "AboutMe":
-        return <AboutMe />;
-
-      case "Images":
-        return <Images />;
-
-      case "Skills":
-        return <Skills />;
-
-      default:
-        return <All setTab={setTab} />;
-    }
-  };
+  const isAIPage = location.pathname === "/ai";
 
   return (
-    <div style={{ padding: "20px" }}>
-      <SearchBar />
+    <div
+      style={{
+        padding: isAIPage ? "0" : "20px",
+        minHeight: "100vh",
+      }}
+    >
+      {/* Hide SearchBar on AI Mode */}
+      {!isAIPage && <SearchBar />}
 
-      {/* TabNav already uses setActiveTab internally */}
-      <TabNav activeTab={tab} setActiveTab={setTab} />
+      <ScrollToTop />
 
+      {/* Always show TabNav */}
+      <TabNav isAIPage={isAIPage} />
+
+      {/* Animated Route Transitions */}
       <AnimatePresence mode="wait">
-        <div key={tab}>
-          {renderTab()}
-        </div>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <All />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/experience"
+            element={
+              <PageWrapper>
+                <Experience />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/projects"
+            element={
+              <PageWrapper>
+                <Projects />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/resume"
+            element={
+              <PageWrapper>
+                <Resume />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper>
+                <Contact />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/about-me"
+            element={
+              <PageWrapper>
+                <AboutMe />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/images"
+            element={
+              <PageWrapper>
+                <Images />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/skills"
+            element={
+              <PageWrapper>
+                <Skills />
+              </PageWrapper>
+            }
+          />
+
+          <Route
+            path="/ai"
+            element={
+              <PageWrapper>
+                <AIMode />
+              </PageWrapper>
+            }
+          />
+        </Routes>
       </AnimatePresence>
+
+      {/* Hide Footer on AI Mode */}
+      {!isAIPage && <Footer />}
     </div>
   );
 }
+
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default App;

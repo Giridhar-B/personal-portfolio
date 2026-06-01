@@ -1,4 +1,5 @@
 node_modules
 package-loc.json
 package.json
+.env
 .gitignore

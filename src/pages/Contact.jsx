@@ -103,10 +103,12 @@ const Contact = () => {
         <h2
           style={{
             fontSize: "22px",
-            fontWeight: 500,
+            fontWeight: "400",
             color: "#1a0dab",
             marginBottom: "8px",
-            cursor: "pointer"
+            marginTop: 0,
+            cursor: "pointer",
+            fontFamily: "Arial, sans-serif",
           }}
           onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
           onMouseLeave={(e) => (e.target.style.textDecoration = "none")}

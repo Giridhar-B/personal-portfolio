@@ -5,13 +5,18 @@ const content = {
   about:
     "**Software Engineer** focused on **backend engineering**, **full-stack development**, and **intelligent recommendation systems**. Worked as a **Software Developer Intern** at 3i Infotech Limited building **REST-driven alert automation workflows** and **enterprise integrations**. Built scalable projects using **React.js**, **Node.js**, **FastAPI**, **Redis**, **PostgreSQL**, and **Graph Neural Networks**.",
 
-  portfolioLink: "https://your-portfolio.vercel.app",
+  portfolioLink: "https://giridhar-portfolio-eosin.vercel.app/",
 
   education: [
     {
       institute: "VIT Chennai",
       degree: "MCA",
       duration: "2023 - 2025"
+    },
+    {
+      institute: "Bishop Heber College",
+      degree: "BCA",
+      duration: "2019 - 2022"
     }
   ],
 
