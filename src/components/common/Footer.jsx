@@ -29,19 +29,29 @@ const Footer = () => {
         fontFamily: "Arial, sans-serif",
       }}
     >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: isMobile ? "30px 16px 24px" : "42px 20px 28px",
-          display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1.4fr 1fr 1fr",
-          gap: isMobile ? "30px" : "28px",
-          textAlign: isMobile ? "center" : "left",
-        }}
-      >
-        {/* LEFT */}
-        <div>
+    <div
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: isMobile ? "30px 16px 24px" : "42px 20px 28px",
+        display: "grid",
+
+        gridTemplateColumns: isMobile
+          ? "1fr 1fr"
+          : "1.4fr 1fr 1fr",
+
+        gap: isMobile ? "24px" : "28px",
+
+        textAlign: isMobile ? "left" : "left",
+      }}
+    >
+          {/* LEFT */}
+          <div
+            style={{
+              gridColumn: isMobile ? "1 / -1" : "auto",
+              textAlign: isMobile ? "center" : "left",
+            }}
+          >
           <div
             style={{
               fontSize: isMobile ? "16px" : "18px",
@@ -163,7 +173,7 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               gap: "12px",
-              alignItems: isMobile ? "center" : "flex-start",
+              alignItems: "flex-start",
             }}
           >
             <a

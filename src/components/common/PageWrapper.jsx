@@ -21,7 +21,8 @@ const PageWrapper = ({ children }) => {
       <div
         style={{
           width: "100%",
-          padding: "20px 24px 60px",
+          padding: "20px 4px 10px",
+          // padding: isMobile ? "20px 8px 20px" : "20px 24px 60px",
           boxSizing: "border-box",
         }}
       >
