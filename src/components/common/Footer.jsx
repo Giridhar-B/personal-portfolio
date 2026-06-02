@@ -1,37 +1,62 @@
 import content from "../../data/content";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const socialStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    fontSize: isMobile ? "13px" : "14px",
+    color: "#5f6368",
+    textDecoration: "none",
+    transition: "all 0.2s ease",
+    fontFamily: "Arial, sans-serif",
+    width: "fit-content",
+  };
 
   return (
     <footer
       style={{
         width: "100%",
-        marginTop: "70px",
+        marginTop: isMobile ? "50px" : "70px",
         background: "#f8f9fa",
         borderTop: "1px solid #e6e8eb",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "42px 20px 28px",
+          padding: isMobile ? "30px 16px 24px" : "42px 20px 28px",
           display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr",
-          gap: "28px",
+          gridTemplateColumns: isMobile ? "1fr" : "1.4fr 1fr 1fr",
+          gap: isMobile ? "30px" : "28px",
+          textAlign: isMobile ? "center" : "left",
         }}
       >
         {/* LEFT */}
         <div>
           <div
             style={{
-              fontSize: "17px",
+              fontSize: isMobile ? "16px" : "18px",
               fontWeight: "600",
               color: "#202124",
               marginBottom: "8px",
               letterSpacing: "-0.2px",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#1a73e8";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#202124";
             }}
           >
             {content.name || "Portfolio"}
@@ -39,7 +64,7 @@ const Footer = () => {
 
           <div
             style={{
-              fontSize: "13px",
+              fontSize: isMobile ? "13px" : "14px",
               color: "#5f6368",
               lineHeight: "1.6",
             }}
@@ -50,12 +75,14 @@ const Footer = () => {
           <div
             style={{
               marginTop: "12px",
-              fontSize: "12.5px",
+              fontSize: isMobile ? "13px" : "14px",
               color: "#80868b",
-              lineHeight: "1.5",
+              lineHeight: "1.6",
+              maxWidth: isMobile ? "100%" : "400px",
             }}
           >
-            Building scalable systems with React, Node.js, and AI-driven applications.
+            Building scalable systems with React, Node.js, and AI-driven
+            applications.
           </div>
         </div>
 
@@ -63,12 +90,12 @@ const Footer = () => {
         <div>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: isMobile ? "13px" : "14px",
               fontWeight: "600",
               color: "#5f6368",
-              marginBottom: "12px",
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
+              marginBottom: "14px",
+              letterSpacing: "0.05em",
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Navigation
@@ -79,13 +106,15 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               gap: "10px",
-              fontSize: "13.5px",
             }}
           >
             {[
+              ["AI Mode", "/aimode"],
               ["Home", "/"],
-              ["Projects", "/projects"],
               ["Images", "/images"],
+              ["Experience", "/experience"],
+              ["Projects", "/projects"],
+              ["Resume", "/resume"],
               ["Skills", "/skills"],
               ["Contact", "/contact"],
             ].map(([label, path]) => (
@@ -95,10 +124,18 @@ const Footer = () => {
                 style={{
                   color: "#5f6368",
                   textDecoration: "none",
-                  transition: "0.2s",
+                  fontSize: isMobile ? "14px" : "15px",
+                  fontFamily: "Arial, sans-serif",
+                  transition: "all 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.target.style.color = "#1a73e8")}
-                onMouseLeave={(e) => (e.target.style.color = "#5f6368")}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#1a73e8";
+                  e.currentTarget.style.transform = "translateX(4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#5f6368";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}
               >
                 {label}
               </a>
@@ -126,28 +163,59 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               gap: "12px",
+              alignItems: isMobile ? "center" : "flex-start",
             }}
           >
             <a
-              href={content.github}
+              href={content.contact.github}
               target="_blank"
               rel="noreferrer"
               style={socialStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#1a73e8";
+                e.currentTarget.style.transform = "translateX(3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#5f6368";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
             >
-              <FaGithub size={16} /> GitHub
+              <FaGithub size={16} />
+              GitHub
             </a>
 
             <a
-              href={content.linkedin}
+              href={content.contact.linkedin}
               target="_blank"
               rel="noreferrer"
               style={socialStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#1a73e8";
+                e.currentTarget.style.transform = "translateX(3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#5f6368";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
             >
-              <FaLinkedin size={16} /> LinkedIn
+              <FaLinkedin size={16} />
+              LinkedIn
             </a>
 
-            <a href={`mailto:${content.email}`} style={socialStyle}>
-              <FaEnvelope size={16} /> Email
+            <a
+              href={`mailto:${content.contact.email}`}
+              style={socialStyle}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#1a73e8";
+                e.currentTarget.style.transform = "translateX(3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#5f6368";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
+            >
+              <FaEnvelope size={16} />
+              Email
             </a>
           </div>
         </div>
@@ -157,27 +225,18 @@ const Footer = () => {
       <div
         style={{
           borderTop: "1px solid #e6e8eb",
-          padding: "16px 20px",
+          padding: isMobile ? "14px 16px" : "16px 20px",
           textAlign: "center",
-          fontSize: "12px",
+          fontSize: isMobile ? "12px" : "13px",
           color: "#80868b",
           background: "#ffffff",
+          fontFamily: "Arial, sans-serif",
         }}
       >
         © {year} {content.name || "Portfolio"} — Built with React & Modern UI
       </div>
     </footer>
   );
-};
-
-const socialStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "10px",
-  fontSize: "13.5px",
-  color: "#5f6368",
-  textDecoration: "none",
-  transition: "0.2s",
 };
 
 export default Footer;

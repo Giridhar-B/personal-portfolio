@@ -7,9 +7,13 @@ import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 
+import useMediaQuery from "../hooks/useMediaQuery";
+
 const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [status, setStatus] = useState("");
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const copyEmail = () => {
     navigator.clipboard.writeText(content.contact.email);
@@ -21,17 +25,18 @@ const Contact = () => {
     display: "inline-flex",
     alignItems: "center",
     gap: "8px",
-    height: "38px",
-    padding: "0 16px",
+    height: isMobile ? "40px" : "38px",
+    padding: isMobile ? "0 14px" : "0 16px",
     borderRadius: "999px",
     border: "1px solid #d0d7de",
     background: "linear-gradient(180deg, #ffffff, #f6f8fa)",
     color: "#1f2328",
-    fontSize: "14px",
+    fontSize: isMobile ? "13px" : "14px",
     fontWeight: 500,
     cursor: "pointer",
     transition: "all 0.25s ease",
     textDecoration: "none",
+    fontFamily: "Arial, sans-serif",
   };
 
   const hoverIn = (e) => {
@@ -58,12 +63,13 @@ const Contact = () => {
     marginBottom: "14px",
     border: "1px solid #d0d7de",
     borderRadius: "10px",
-    fontSize: "15px",
+    fontSize: isMobile ? "14px" : "15px",
     outline: "none",
     boxSizing: "border-box",
     color: "#111827",
     backgroundColor: "#fff",
     transition: "all 0.2s ease",
+    fontFamily: "Arial, sans-serif",
   };
 
   const sendEmail = (e) => {
@@ -96,13 +102,15 @@ const Contact = () => {
           maxWidth: "1100px",
           margin: "20px auto 0",
           marginTop: "-20px",
-          transform: "translateX(-10.5px)"
+          padding: isMobile ? "0 12px" : "0",
+          boxSizing: "border-box",
+          fontFamily: "Arial, sans-serif",
         }}
       >
         {/* HEADER */}
         <h2
           style={{
-            fontSize: "22px",
+            fontSize: isMobile ? "20px" : "22px",
             fontWeight: "400",
             color: "#1a0dab",
             marginBottom: "8px",
@@ -118,7 +126,8 @@ const Contact = () => {
 
         <p
           style={{
-            fontSize: "15px",
+            fontSize: isMobile ? "14px" : "15px",
+            fontFamily: "Arial, sans-serif",
             color: "#475569",
             marginBottom: "30px",
             maxWidth: "720px",
@@ -238,10 +247,16 @@ const Contact = () => {
                 fontWeight: 500,
               }}
             >
-              <FiMapPin />Location
+              <FiMapPin /> Location
             </div>
 
-            <div style={{ fontSize: "15px", color: "#111827" }}>
+            <div
+              style={{
+                fontSize: isMobile ? "14px" : "15px",
+                color: "#111827",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
               {content.contact.location}
             </div>
           </div>
@@ -251,7 +266,8 @@ const Contact = () => {
         <form onSubmit={sendEmail}>
           <h3
             style={{
-              fontSize: "22px",
+              fontSize: isMobile ? "20px" : "22px",
+              fontFamily: "Arial, sans-serif",
               fontWeight: 500,
               color: "#1a0dab",
               marginBottom: "16px",

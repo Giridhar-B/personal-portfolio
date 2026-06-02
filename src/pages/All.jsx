@@ -10,6 +10,9 @@ import ReactMarkdown from "react-markdown";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+import useMediaQuery from "../hooks/useMediaQuery";
+
+
 const container = {
   hidden: {},
   show: {
@@ -53,6 +56,8 @@ const All = () => {
     },
   ];
 
+const isMobile = useMediaQuery("(max-width: 768px)");
+
   const relatedChipStyle = {
     display: "flex",
     alignItems: "center",
@@ -93,16 +98,26 @@ const All = () => {
         <div
           style={{
             display: "flex",
-            gap: "60px",
+            gap: isMobile ? "24px" : "40px",
             alignItems: "flex-start",
             width: "100%",
             maxWidth: "1100px",
+            flexDirection: isMobile ? "column" : "row",
+            flexWrap: "nowrap",
           }}
         >
 
 
           {/* LEFT COLUMN */}
-          <div style={{ flex: 1, minWidth: 0 }}>
+          <div
+            style={{
+              flex: 1,
+              minWidth: 0,
+              width: "100%",
+              order: isMobile ? 2 : 1,
+            }}
+          >
+
             {/* FEATURED */}
             <motion.div
               variants={fadeIn}
@@ -292,7 +307,7 @@ const All = () => {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",                  
                   gap: "14px",
                 }}
               >
@@ -325,11 +340,15 @@ const All = () => {
             animate="show"
             transition={{ delay: 0.2 }}
             style={{
+              width: isMobile ? "100%" : "400px",
+              maxWidth: isMobile ? "100%" : "400px",
               flexShrink: 0,
-              width: "320px",
-              position: "sticky",
-              top: "24px",
+              order: isMobile ? 1 : 2,
+              position: "static",
+
               alignSelf: "flex-start",
+
+              marginLeft: isMobile ? "0px" : "20px",
             }}
           >
             <KnowledgePanel />

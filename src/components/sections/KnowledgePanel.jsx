@@ -4,24 +4,31 @@ import { FiMail, FiMapPin } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
-const KnowledgePanel = ({ setTab }) => {
+import { useNavigate } from "react-router-dom";
+
+const KnowledgePanel = () => {
+  const navigate = useNavigate();
+
   const topSkills = content.skills
     ? content.skills.flatMap((group) => group.items).slice(0, 10)
     : [];
 
   const goToSkills = () => {
-    setTab?.("Skills");
+    navigate("/skills");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const goToContact = () => {
-    setTab?.("Contact");
+    navigate("/contact");
 
-    setTimeout(() => {
-      const el = document.getElementById("contact-message-section");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 50);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const primaryProfiles = [
@@ -43,16 +50,18 @@ const KnowledgePanel = ({ setTab }) => {
   ];
 
   const sectionTitle = {
-    fontSize: "14px",
+    fontSize: "16px",
     fontWeight: 500,
     color: "#1a0dab",
-    textTransform: "uppercase",
   };
 
   return (
     <aside
       style={{
-        width: "372px",
+        // width: "372px",
+        // marginLeft: "18px",
+        width: "100%",
+        maxWidth: "372px",
         background: "#fff",
         border: "1px solid #dadce0",
         borderRadius: "18px",
@@ -120,14 +129,32 @@ const KnowledgePanel = ({ setTab }) => {
           </div>
         </div>
 
-        {/* PROFILES */}
-        <div style={{ marginBottom: "28px", cursor: "pointer" }}
-          onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-          onMouseLeave={(e) => (e.target.style.textDecoration = "none")}        
-        >
-          <div style={sectionTitle}>Profiles</div>
 
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "12px" }}>
+        {/* PROFILES */}
+        <div style={{ marginBottom: "28px" }}>
+          <div
+            style={{
+              ...sectionTitle,
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.textDecoration = "underline")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.textDecoration = "none")
+            }
+          >
+            Profiles
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              flexWrap: "wrap",
+              marginTop: "12px",
+            }}
+          >
             {primaryProfiles.map(
               (item, i) =>
                 item.url && (
@@ -140,12 +167,33 @@ const KnowledgePanel = ({ setTab }) => {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "8px",
-                      padding: "8px 12px",
+                      height: "36px",
+                      padding: "0 14px",
                       borderRadius: "999px",
-                      border: "1px solid #dadce0",
+                      border: "1px solid #d0d7de",
+                      background:
+                        "linear-gradient(180deg, #ffffff, #f6f8fa)",
+                      color: "#1f2328",
                       textDecoration: "none",
-                      color: "#1f1f1f",
                       fontSize: "13px",
+                      fontFamily: "Arial, sans-serif",
+                      transition: "all 0.25s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#1a73e8";
+                      e.currentTarget.style.color = "#ffffff";
+                      e.currentTarget.style.borderColor = "#1a73e8";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                      e.currentTarget.style.boxShadow =
+                        "0 10px 20px rgba(26,115,232,0.25)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background =
+                        "linear-gradient(180deg, #ffffff, #f6f8fa)";
+                      e.currentTarget.style.color = "#1f2328";
+                      e.currentTarget.style.borderColor = "#d0d7de";
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     {item.icon}

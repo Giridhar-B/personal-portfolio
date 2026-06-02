@@ -1,7 +1,10 @@
 import content from "../data/content";
 import PageWrapper from "../components/common/PageWrapper";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const Skills = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const skillGroups = content?.skills || [];
 
   const colorMap = {
@@ -33,13 +36,13 @@ const Skills = () => {
         <div
           style={{
             display: "flex",
-            gap: "60px",
+            gap: isMobile ? "24px" : "60px",
             alignItems: "flex-start",
             width: "100%",
             maxWidth: "1100px",
           }}
         >
-          {/* LEFT COLUMN (same alignment as All.jsx) */}
+          {/* LEFT COLUMN */}
           <div
             style={{
               flex: 1,
@@ -49,7 +52,7 @@ const Skills = () => {
             {/* PAGE TITLE */}
             <h2
               style={{
-                fontSize: "22px",
+                fontSize: isMobile ? "20px" : "22px",
                 fontWeight: "400",
                 color: "#1a0dab",
                 marginBottom: "18px",
@@ -70,9 +73,9 @@ const Skills = () => {
             {/* SUBTITLE */}
             <p
               style={{
-                fontSize: "14px",
+                fontSize: isMobile ? "13px" : "14px",
                 color: "#5f6368",
-                marginBottom: "22px",
+                marginBottom: isMobile ? "18px" : "22px",
                 fontFamily: "Arial, sans-serif",
               }}
             >
@@ -84,8 +87,8 @@ const Skills = () => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "20px",
+                justifyContent: isMobile ? "center" : "center",
+                gap: isMobile ? "12px" : "20px",
                 perspective: "1000px",
               }}
             >
@@ -93,13 +96,13 @@ const Skills = () => {
                 <div
                   key={idx}
                   style={{
-                    padding: "16px 26px",
-                    borderRadius: "20px",
+                    padding: isMobile ? "12px 18px" : "16px 26px",
+                    borderRadius: isMobile ? "16px" : "20px",
 
                     background: `${skill.color}15`,
                     color: skill.color,
 
-                    fontSize: "15px",
+                    fontSize: isMobile ? "14px" : "15px",
                     fontWeight: "500",
                     letterSpacing: "0.2px",
                     fontFamily: "Arial, sans-serif",
@@ -118,8 +121,10 @@ const Skills = () => {
                     whiteSpace: "nowrap",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-8px) scale(1.04)";
+                    if (!isMobile) {
+                      e.currentTarget.style.transform =
+                        "translateY(-8px) scale(1.04)";
+                    }
 
                     e.currentTarget.style.background = skill.color;
                     e.currentTarget.style.color = "#ffffff";
