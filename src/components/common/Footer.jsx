@@ -2,6 +2,8 @@ import content from "../../data/content";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -119,7 +121,7 @@ const Footer = () => {
             }}
           >
             {[
-              ["AI Mode", "/aimode"],
+              ["AI Mode", "/ai"],
               ["Home", "/"],
               ["Images", "/images"],
               ["Experience", "/experience"],
@@ -128,27 +130,27 @@ const Footer = () => {
               ["Skills", "/skills"],
               ["Contact", "/contact"],
             ].map(([label, path]) => (
-              <a
-                key={label}
-                href={path}
-                style={{
-                  color: "#5f6368",
-                  textDecoration: "none",
-                  fontSize: isMobile ? "14px" : "15px",
-                  fontFamily: "Arial, sans-serif",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#1a73e8";
-                  e.currentTarget.style.transform = "translateX(4px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#5f6368";
-                  e.currentTarget.style.transform = "translateX(0)";
-                }}
-              >
-                {label}
-              </a>
+            <Link
+              key={label}
+              to={path}
+              style={{
+                color: "#5f6368",
+                textDecoration: "none",
+                fontSize: isMobile ? "14px" : "15px",
+                fontFamily: "Arial, sans-serif",
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#1a73e8";
+                e.currentTarget.style.transform = "translateX(4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#5f6368";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
+            >
+              {label}
+            </Link>
             ))}
           </div>
         </div>

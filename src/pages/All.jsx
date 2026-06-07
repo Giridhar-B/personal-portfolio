@@ -149,7 +149,7 @@ const isMobile = useMediaQuery("(max-width: 768px)");
                 style={{
                   fontSize: "14px",
                   color: "#4d5156",
-                  lineHeight: "1.7",
+                  lineHeight: "1.5",
                   marginTop: "10px",
                   fontFamily: "Arial, sans-serif",
                 }}
@@ -218,6 +218,7 @@ const isMobile = useMediaQuery("(max-width: 768px)");
                   style={{
                     fontSize: "14px",
                     color: "#4d5156",
+                    lineHeight: "1.5",
                     fontFamily: "Arial, sans-serif",
                   }}
                 >
@@ -248,7 +249,7 @@ const isMobile = useMediaQuery("(max-width: 768px)");
                 onClick={() => navigateTo("/projects")}
                 style={{
                   fontSize: "22px",
-                  fontWeight: "500",
+                  fontWeight: "400",
                   color: "#1a0dab",
                   marginBottom: "18px",
                   cursor: "pointer",

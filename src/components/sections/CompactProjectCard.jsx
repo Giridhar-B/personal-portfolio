@@ -14,7 +14,7 @@ const CompactProjectCard = ({ project, setTab }) => {
 
   return (
     <div style={{ marginBottom: "30px" }}>
-      {/* TITLE (NOW NAVIGATES TO PROJECT PAGE + SCROLL) */}
+      {/* TITLE */}
       <h3
         onClick={handleClick}
         style={{
@@ -36,15 +36,45 @@ const CompactProjectCard = ({ project, setTab }) => {
       </h3>
 
       {/* LINKS */}
-      <div style={{ display: "flex", gap: "10px", marginBottom: "8px" }}>
+      <div style={{ display: "flex", gap: "12px", marginBottom: "8px" }}>
         {project.github && (
-          <a href={project.github} target="_blank" rel="noreferrer">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              color: "#1a0dab",
+              textDecoration: "none",
+              fontSize: "16px",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.textDecoration = "underline";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
             GitHub
           </a>
         )}
 
         {project.live && (
-          <a href={project.live} target="_blank" rel="noreferrer">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              color: "#1a0dab",
+              textDecoration: "none",
+              fontSize: "16px",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.textDecoration = "underline";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
             Live
           </a>
         )}
@@ -52,14 +82,14 @@ const CompactProjectCard = ({ project, setTab }) => {
 
       {/* DESCRIPTION */}
       {project.description && (
-        <div style={{ fontSize: "14px", color: "#4d5156" }}>
+        <div style={{ fontSize: "14px", lineHeight: "1.5", color: "#4d5156" }}>
           <ReactMarkdown>{project.intro}</ReactMarkdown>
         </div>
       )}
 
       {/* TAGS */}
       {project.tags && (
-        <p style={{ fontSize: "12px", color: "#70757a" }}>
+        <p style={{ fontSize: "13px", color: "#70757a" }}>
           {project.tags.join(" • ")}
         </p>
       )}

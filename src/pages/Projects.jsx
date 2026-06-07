@@ -8,30 +8,37 @@ const formatText = (text) => {
 };
 
 const linkStyle = {
-  color: "#006621",
-  textDecoration: "none",
-  fontSize: "13px",
-  fontWeight: "500",
   display: "inline-flex",
   alignItems: "center",
-  gap: "4px",
-  padding: "6px 12px",
-  borderRadius: "8px",
-  background: "#f8f9fa",
-  border: "1px solid #e0e0e0",
-  transition: "all 0.2s ease",
-  cursor: "pointer",
+  gap: "8px",
+  height: "36px",
+  padding: "0 14px",
+  borderRadius: "999px",
+  border: "1px solid #d0d7de",
+  background: "linear-gradient(180deg, #ffffff, #f6f8fa)",
+  color: "#1f2328",
+  textDecoration: "none",
+  fontSize: "13px",
   fontFamily: "Arial, sans-serif",
+  transition: "all 0.25s ease",
 };
 
 const handleLinkHover = (e) => {
-  e.currentTarget.style.background = "#e8f0fe";
-  e.currentTarget.style.borderColor = "#d2e3fc";
+  e.currentTarget.style.background = "#1a73e8";
+  e.currentTarget.style.color = "#ffffff";
+  e.currentTarget.style.borderColor = "#1a73e8";
+  e.currentTarget.style.transform = "translateY(-2px)";
+  e.currentTarget.style.boxShadow =
+    "0 10px 20px rgba(26,115,232,0.25)";
 };
 
 const handleLinkLeave = (e) => {
-  e.currentTarget.style.background = "#f8f9fa";
-  e.currentTarget.style.borderColor = "#e0e0e0";
+  e.currentTarget.style.background =
+    "linear-gradient(180deg, #ffffff, #f6f8fa)";
+  e.currentTarget.style.color = "#1f2328";
+  e.currentTarget.style.borderColor = "#d0d7de";
+  e.currentTarget.style.transform = "translateY(0)";
+  e.currentTarget.style.boxShadow = "none";
 };
 
 const Projects = () => {

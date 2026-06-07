@@ -148,7 +148,7 @@ const PeopleAlsoAsk = () => {
                         margin: 0,
                         fontSize: "14px",
                         color: "#4d5156",
-                        lineHeight: "1.8"
+                        lineHeight: "1.5"
                       }}
                     >
                       {item.answer}

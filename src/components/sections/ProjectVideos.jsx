@@ -2,8 +2,12 @@ import { useState } from "react";
 import content from "../../data/content";
 import { Play, X, ChevronRight } from "lucide-react";
 
+import { useNavigate } from "react-router-dom";
+
 const ProjectVideos = ({ setTab }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const navigate = useNavigate();
 
   return (
     <div style={{ marginTop: "42px" }}>
@@ -169,7 +173,7 @@ const ProjectVideos = ({ setTab }) => {
 
           {/* Button */}
           <div
-            onClick={() => setTab("Projects")}
+            onClick={() => navigate("/images")}
             style={{
               margin: "0 14px",
               padding: "9px 18px",

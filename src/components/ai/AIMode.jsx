@@ -77,8 +77,15 @@ const AIMode = () => {
     }, 100);
 
     try {
+      // const res = await axios.post(
+      //   "http://localhost:5000/api/chat",
+      //   {
+      //     message: prompt,
+      //   }
+      // );
+
       const res = await axios.post(
-        "http://localhost:5000/api/chat",
+        "/api/chat",
         {
           message: prompt,
         }
