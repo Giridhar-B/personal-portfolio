@@ -11,7 +11,6 @@ import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import AboutMe from "./pages/AboutMe";
 import Images from "./pages/Images";
 import Skills from "./pages/Skills";
 import AIMode from "./pages/AIModePage";
