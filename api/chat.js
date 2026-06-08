@@ -28,10 +28,10 @@ export default async function handler(req, res) {
             parts: [
               {
                 text: `
-${systemPrompt}
+                    ${systemPrompt}
 
-User Question:
-${userMessage}
+                    User Question:
+                    ${userMessage}
                 `,
               },
             ],
@@ -58,10 +58,13 @@ ${userMessage}
       response: aiText || "No response generated",
     });
   } catch (err) {
-    console.error(err);
+    console.error(
+        "Gemini Error:",
+        err.response?.data || err.message || err
+    );
 
     return res.status(500).json({
-      error: "AI request failed",
+        error: err.response?.data || err.message,
     });
-  }
+    }
 }
