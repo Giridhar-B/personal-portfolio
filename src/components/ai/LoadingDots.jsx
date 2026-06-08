@@ -1,16 +1,59 @@
+const dotStyle = {
+  width: "8px",
+  height: "8px",
+  borderRadius: "50%",
+  backgroundColor: "#5f6368",
+  animation: "bounce 1.2s infinite ease-in-out",
+};
+
 const LoadingDots = () => {
   return (
-    <div className="flex justify-start mb-6">
-      <div className="bg-gray-100 rounded-3xl px-5 py-4">
-        <div className="flex gap-2">
-          <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce"></div>
+    <>
+      <style>
+        {`
+          @keyframes bounce {
+            0%, 80%, 100% {
+              transform: scale(0);
+              opacity: 0.5;
+            }
+            40% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
 
-          <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:0.2s]"></div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginBottom: "24px",
+        }}
+      >
+        <div
+          style={{
+            background: "#f1f3f4",
+            borderRadius: "24px",
+            padding: "14px 18px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              gap: "6px",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ ...dotStyle, animationDelay: "0s" }} />
 
-          <div className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:0.4s]"></div>
+            <div style={{ ...dotStyle, animationDelay: "0.2s" }} />
+
+            <div style={{ ...dotStyle, animationDelay: "0.4s" }} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

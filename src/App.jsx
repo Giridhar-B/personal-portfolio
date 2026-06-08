@@ -87,15 +87,6 @@ function App() {
           />
 
           <Route
-            path="/about-me"
-            element={
-              <PageWrapper>
-                <AboutMe />
-              </PageWrapper>
-            }
-          />
-
-          <Route
             path="/images"
             element={
               <PageWrapper>
