@@ -1,89 +1,152 @@
 # Personal Portfolio
 
-A modern Google-inspired developer portfolio built with React, Vite, and Tailwind CSS showcasing projects, skills, certifications, and experience.
+A modern Google-inspired portfolio website built to showcase my software engineering experience, projects, technical skills, and achievements. The portfolio also includes an AI-powered assistant that can answer questions about my background, projects, and experience.
+
+## Live Website
+
+https://giridhar-portfolio-eosin.vercel.app/
 
 ---
 
-## 🚀 Live Demo
-https://your-portfolio-url.vercel.app
+## Features
+
+* Google-inspired search experience and layout
+* AI-powered portfolio assistant using Gemini API
+* Interactive project showcase
+* Resume viewer and PDF download
+* Contact form integration using EmailJS
+* Skills, experience, certifications, and achievements sections
+* Fully responsive design for desktop and mobile devices
+* Smooth navigation and modern UI/UX
+* Deployed on Vercel with automatic CI/CD
 
 ---
 
-## 🛠️ Tech Stack
-- React.js
-- Vite
-- Tailwind CSS
-- JavaScript (ES6+)
-- Framer Motion
+## Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* JavaScript (ES6+)
+* React Router
+* Framer Motion
+* Axios
+
+### Backend
+
+* Vercel Serverless Functions
+* Gemini API
+
+### Services
+
+* EmailJS
+* Vercel
 
 ---
 
-## ✨ Features
-- Google-inspired clean UI/UX design
-- Interactive project showcase
-- Machine Learning & Full-Stack projects
-- Certifications and achievements section
-- Resume-style knowledge panel
-- Fully responsive design (mobile + desktop)
-- Smooth animations and modern transitions
-- Fast performance with Vite build system
+## Project Structure
 
----
+```text
+personal-portfolio/
+├── api/
+│   └── chat.js
+├── public/
+│   └── resume.pdf
+├── src/
+│   ├── components/
+│   │   ├── ai/
+│   │   ├── common/
+│   │   └── layout/
+│   ├── pages/
+│   ├── routes/
+│   ├── data/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+├── vercel.json
+└── README.md
+```
 
-## 📁 Project Structure
-src/
-├── components/
-├── pages/
-├── data/
-├── assets/
-├── styles/
-└── App.jsx
-
-
----
-
-## ⚙️ Installation & Setup
+## Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/Giridhar-B/personal-portfolio
+git clone https://github.com/Giridhar-B/personal-portfolio.git
+```
 
+Navigate to the project directory:
 
-Navigate to project folder:
 ```bash
-cd portfolio
+cd personal-portfolio
+```
 
 Install dependencies:
+
 ```bash
 npm install
+```
 
-Run development server:
+Start the development server:
+
 ```bash
 npm run dev
+```
 
+---
 
-📦 Build for Production
+## Production Build
+
+Build the project:
+
 ```bash
 npm run build
+```
 
-Preview production build:
+Preview the production build:
+
 ```bash
 npm run preview
+```
 
+---
 
-🌐 Deployment
+## AI Assistant
 
-This project is deployed using Vercel.
-Every push to the main branch automatically updates the live site.
+The portfolio includes an AI-powered assistant that answers questions about:
 
+* Education
+* Technical skills
+* Work experience
+* Projects
+* Certifications
+* Career interests
 
-📬 Contact
-Email: giridhar7703@gmail.com
-LinkedIn: https://www.linkedin.com/in/giridhar-balasubramanian/
-GitHub: https://github.com/Giridhar-B
+The assistant uses Google's Gemini API through Vercel Serverless Functions.
 
+---
 
-📌 Note
+## Deployment
 
-This portfolio is designed to highlight full-stack development skills, machine learning projects, and UI/UX design inspired by Google's knowledge panel style.
+This project is deployed on Vercel.
+
+Every push to the `main` branch automatically triggers a new deployment.
+
+---
+
+## Contact
+
+Email: [giridhar7703@gmail.com](mailto:giridhar7703@gmail.com)
+
+LinkedIn:
+https://www.linkedin.com/in/giridhar-balasubramanian/
+
+GitHub:
+https://github.com/Giridhar-B
+
+---
+
+## License
+
+This project is intended for personal portfolio and professional showcase purposes.
