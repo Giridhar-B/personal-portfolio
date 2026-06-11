@@ -97,8 +97,14 @@ const AIMode = () => {
         ...prev,
         {
           role: "ai",
-          text:
-            "Sorry, something went wrong. Please try again.",
+          type: "service_unavailable",
+          text: `
+          **AI Assistant Temporarily Unavailable**
+
+          The Gemini API usage limit has been reached or the AI service is currently unavailable.
+
+          You can still explore my projects, experience, and skills, or contact me directly for opportunities and collaborations.
+          `,
         },
       ]);
     } finally {
